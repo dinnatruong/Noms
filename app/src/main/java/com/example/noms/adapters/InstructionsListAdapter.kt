@@ -11,16 +11,16 @@ class InstructionsListAdapter (val instructions: List<String>) : RecyclerView.Ad
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RecyclerView.ViewHolder {
         val view = LayoutInflater.from(parent.context).inflate(R.layout.instruction_list_item, parent, false)
-        return PartViewHolder(view)
+        return InstructionListItemViewHolder(view)
     }
 
     override fun onBindViewHolder(holder: RecyclerView.ViewHolder, position: Int) {
-        (holder as PartViewHolder).bind(instructions[position])
+        (holder as InstructionListItemViewHolder).bind(instructions[position])
     }
 
     override fun getItemCount() = instructions.size
 
-    class PartViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
+    class InstructionListItemViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
 
         fun bind(instruction: String) {
             itemView.instructionInfo.text = instruction

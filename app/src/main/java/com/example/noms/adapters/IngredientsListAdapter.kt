@@ -13,16 +13,16 @@ class IngredientsListAdapter (val ingredient: List<Ingredient>) : RecyclerView.A
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RecyclerView.ViewHolder {
         val view = LayoutInflater.from(parent.context).inflate(R.layout.ingredient_list_item, parent, false)
-        return PartViewHolder(view)
+        return IngredientListItemViewHolder(view)
     }
 
     override fun onBindViewHolder(holder: RecyclerView.ViewHolder, position: Int) {
-        (holder as PartViewHolder).bind(ingredient[position])
+        (holder as IngredientListItemViewHolder).bind(ingredient[position])
     }
 
     override fun getItemCount() = ingredient.size
 
-    class PartViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
+    class IngredientListItemViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
 
         fun bind(ingredient: Ingredient) {
             var ingredientInfo = StringBuilder()
