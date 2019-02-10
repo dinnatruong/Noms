@@ -4,8 +4,8 @@ import com.google.gson.annotations.SerializedName
 
 class Recipe {
 
-    @SerializedName("id")
-    val id: Long? = null
+    @SerializedName("_id")
+    val id: String? = null
 
     @SerializedName("title")
     val title: String? = null
@@ -17,6 +17,6 @@ class Recipe {
     val ingredients: List<Ingredient>? = null
 
     @SerializedName("instructions")
-    val instructions: String? = null
+    val instructions: List<String>? = null
 
 }

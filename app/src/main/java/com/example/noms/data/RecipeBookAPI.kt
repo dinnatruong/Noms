@@ -10,9 +10,9 @@ interface  RecipeBookAPI {
     fun getRecipeBook(): Call<RecipeBookResponse>
 
     @GET("/recipe/{recipe_id}")
-    fun getRecipe(@Path("recipe_id") recipe_id: Long?): Call<RecipeResponse>
+    fun getRecipe(@Path("recipe_id") recipe_id: String?): Call<RecipeResponse>
 
     @GET("/ingredient/{ingredient_id}")
-    fun getIngredient(@Path("ingredient_id") ingredient_id: Long?): Call<IngredientResponse>
+    fun getIngredient(@Path("ingredient_id") ingredient_id: String?): Call<IngredientResponse>
 
 }

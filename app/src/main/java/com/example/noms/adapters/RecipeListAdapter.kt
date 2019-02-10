@@ -5,9 +5,10 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import com.example.noms.R
+import com.example.noms.model.Recipe
 import kotlinx.android.synthetic.main.recipe_list_item.view.*
 
-class RecipeListAdapter (val recipe: List<String>) : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
+class RecipeListAdapter (val recipe: ArrayList<Recipe>) : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RecyclerView.ViewHolder {
         val view = LayoutInflater.from(parent.context).inflate(R.layout.recipe_list_item, parent, false)
@@ -22,8 +23,8 @@ class RecipeListAdapter (val recipe: List<String>) : RecyclerView.Adapter<Recycl
 
     class PartViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
 
-        fun bind(recipe: String) {
-            itemView.recipeTitle.text = recipe
+        fun bind(recipe: Recipe) {
+            itemView.recipeTitle.text = recipe.title
         }
     }
 }

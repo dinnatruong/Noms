@@ -4,8 +4,8 @@ import com.google.gson.annotations.SerializedName
 
 class Ingredient {
 
-    @SerializedName("id")
-    val id: Long? = null
+    @SerializedName("_id")
+    val id: String? = null
 
     @SerializedName("title")
     val title: String? = null

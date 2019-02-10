@@ -5,7 +5,7 @@ import com.google.gson.annotations.SerializedName
 
 class RecipeResponse {
 
-    @SerializedName("recipes")
-    var recipes: ArrayList<Recipe>? = null
+    @SerializedName("recipe")
+    var recipe: Recipe? = null
 
 }
