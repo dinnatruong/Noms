@@ -8,7 +8,7 @@ import com.example.noms.R
 import com.example.noms.model.Recipe
 import kotlinx.android.synthetic.main.recipe_list_item.view.*
 
-class RecipeListAdapter (val recipe: ArrayList<Recipe>) : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
+class RecipeListAdapter (val recipe: ArrayList<Recipe>, val clickListener: (Recipe) -> Unit) : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RecyclerView.ViewHolder {
         val view = LayoutInflater.from(parent.context).inflate(R.layout.recipe_list_item, parent, false)
@@ -16,15 +16,16 @@ class RecipeListAdapter (val recipe: ArrayList<Recipe>) : RecyclerView.Adapter<R
     }
 
     override fun onBindViewHolder(holder: RecyclerView.ViewHolder, position: Int) {
-        (holder as PartViewHolder).bind(recipe[position])
+        (holder as PartViewHolder).bind(recipe[position], clickListener)
     }
 
     override fun getItemCount() = recipe.size
 
     class PartViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
 
-        fun bind(recipe: Recipe) {
+        fun bind(recipe: Recipe, clickListener: (Recipe) -> Unit) {
             itemView.recipeTitle.text = recipe.title
+            itemView.setOnClickListener { clickListener(recipe)}
         }
     }
 }

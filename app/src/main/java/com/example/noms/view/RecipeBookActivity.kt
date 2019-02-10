@@ -2,6 +2,7 @@ package com.example.noms.view
 
 import android.arch.lifecycle.Observer
 import android.arch.lifecycle.ViewModelProviders
+import android.content.Intent
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
 import android.support.v4.content.ContextCompat
@@ -17,7 +18,9 @@ class RecipeBookActivity : AppCompatActivity() {
     private lateinit var recipeBookViewModel: RecipeBookViewModel
     private lateinit var recipeViewModel: RecipeViewModel
     private var recipesList = arrayListOf<Recipe>()
-    private var recipeAdapter = RecipeListAdapter(recipesList)
+    private var recipeAdapter = RecipeListAdapter(recipesList) {
+            recipe : Recipe -> recipeClicked(recipe)
+    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -63,5 +66,12 @@ class RecipeBookActivity : AppCompatActivity() {
         } else {
             recipeAdapter.notifyDataSetChanged()
         }
+    }
+
+    private fun recipeClicked(partItem : Recipe) {
+        // Set up intent to pass to new activity on click
+        val intent = Intent(this@RecipeBookActivity, RecipeActivity::class.java)
+        intent.putExtra("RECIPE_TITLE", partItem.title)
+        startActivity(intent)
     }
 }
