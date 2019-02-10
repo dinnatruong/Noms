@@ -71,7 +71,7 @@ class RecipeBookActivity : AppCompatActivity() {
     private fun recipeClicked(partItem : Recipe) {
         // Set up intent to pass to new activity on click
         val intent = Intent(this@RecipeBookActivity, RecipeActivity::class.java)
-        intent.putExtra("RECIPE_TITLE", partItem.title)
+        intent.putExtra("RECIPE", partItem)
         startActivity(intent)
     }
 }

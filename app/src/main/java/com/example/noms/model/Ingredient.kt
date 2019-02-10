@@ -1,11 +1,9 @@
 package com.example.noms.model
 
 import com.google.gson.annotations.SerializedName
+import java.io.Serializable
 
-class Ingredient {
-
-    @SerializedName("_id")
-    val id: String? = null
+class Ingredient : Serializable {
 
     @SerializedName("title")
     val title: String? = null
